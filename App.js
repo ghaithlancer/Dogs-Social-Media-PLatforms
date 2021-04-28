@@ -7,6 +7,7 @@ import SignupScreen from './components/auth/Signup'
 import LoginScreen from './components/auth/Login'
 import MainScreen from './components/Main'
 import AddScreen from './components/main/Add'
+import SaveScreen from './components/main/Save'
 import firebase from 'firebase'
 import {firebaseConfig} from './firebase'
 import {Provider} from 'react-redux'
@@ -75,8 +76,9 @@ export class App extends Component {
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='Main'>
-              <Stack.Screen name="Main" component={MainScreen} options={{headerShown: false}} />
-              <Stack.Screen name="Add" component={AddScreen} />
+              <Stack.Screen name="Main" component={MainScreen}  />
+              <Stack.Screen name="Add" component={AddScreen} navigation={this.props.navigation}/>
+              <Stack.Screen name="Save" component={SaveScreen} navigation={this.props.navigation}/>
           </Stack.Navigator>
          </NavigationContainer>
       </Provider>
@@ -86,3 +88,4 @@ export class App extends Component {
 
 export default App
 
+// options={{headerShown: false}}
