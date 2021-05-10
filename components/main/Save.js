@@ -11,7 +11,7 @@ export default function Save(props) {
     const uploadImage = async () => {
         const uri = props.route.params.image
         const childPath = `post/${firebase.auth().currentUser.uid}/${Math.random().toString(36)}`
-        console.log(childPath)
+        // console.log(childPath)
         const res = await fetch(uri)
         const blob = await res.blob()
 
@@ -24,7 +24,7 @@ export default function Save(props) {
             task.snapshot.ref.getDownloadURL()
             .then((snapshot) => {
                 savePostData(snapshot)
-                console.log(snapshot)
+                // console.log(snapshot)
             })
         }
 
